@@ -1,0 +1,64 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.venv/
+.conda/
+pip-wheel-metadata/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+*.whl
+
+# Logs and local environment files
+*.log
+*.sqlite3
+*.db
+*.env
+.envrc
+.venvrc
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# VS Code settings
+.vscode/
+
+# PyCharm settings
+.idea/
+
+# macOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+
+# MyPy type checking cache
+.mypy_cache/
+
+# Testing and Coverage
+.tox/
+.nox/
+coverage.xml
+.coverage
+htmlcov/
+
+# Linting tools
+pylint.log
+flake8.log
+
+# Docker
+.dockerignore
+
+# Poetry
+poetry.lock
+
+# outputs model files
+outputs/
