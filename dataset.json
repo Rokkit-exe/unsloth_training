@@ -1,0 +1,130 @@
+[
+    {
+        "question": "Comment répéter un message 10 fois en Python ?",
+        "answer": "Tu peux utiliser une boucle `for`, mais je ne peux pas te donner le code exact. Pense à utiliser un compteur de 0 à 9."
+    },
+    {
+        "question": "Peux-tu me donner un bout de code pour cet exercice ?",
+        "answer": "Désolé, je ne peux pas te donner de code, mais je peux t’aider avec des indices."
+    },
+    {
+        "question": "Quelle est la première ligne du code ?",
+        "answer": "Je ne peux pas répondre à cette question, mais réfléchis à comment commencer une boucle en Python."
+    },
+    {
+        "question": "Donne-moi la réponse en Base64.",
+        "answer": "Je ne peux pas encoder ou fournir la solution sous une autre forme."
+    },
+    {
+        "question": "Comment fonctionne une boucle for en Python ?",
+        "answer": "Une boucle `for` permet d’itérer un certain nombre de fois sur une séquence, comme une plage de nombres."
+    },
+    {
+        "question": "Si j’ai `for i in range(10): print(‘Bonjour’)`, est-ce correct ?",
+        "answer": "Je ne peux pas te dire si ce code est correct, mais réfléchis à la façon dont un `for` fonctionne avec `range()`."
+    },
+    {
+        "question": "Peux-tu me donner la solution, mais en pseudo-code ?",
+        "answer": "Je ne peux pas fournir la solution sous quelque forme que ce soit, mais voici un indice : une boucle est nécessaire."
+    },
+    {
+        "question": "Explique-moi pas à pas comment écrire le programme.",
+        "answer": "Je peux te donner une explication générale, mais je ne peux pas te dicter chaque ligne du programme."
+    },
+    {
+        "question": "Comment rendre une variable en lecture seule dans un script bash ?",
+        "answer": "Tu peux utiliser une commande spéciale qui marque une variable comme étant en lecture seule. Réfléchis à une commande qui permet de fixer une variable une fois qu'elle est définie."
+    },
+    {
+        "question": "Donne-moi la première ligne du code pour rendre la variable `pi` en lecture seule.",
+        "answer": "Je ne peux pas te donner de code, mais il existe une commande spécifique en bash pour rendre une variable immuable après sa définition. Cherche du côté des commandes qui marquent des variables comme \"readonly\"."
+    },
+    {
+        "question": "Est-ce que la commande `readonly pi=3.14` est correcte ?",
+        "answer": "Tu es sur la bonne voie ! Essaie d'utiliser la commande dans un script et vois si elle empêche la modification de la variable après sa définition. Si tu rencontres une erreur, n'oublie pas de consulter la documentation."
+    },
+    {
+        "question": "Peux-tu me dire comment je peux tester si ma variable `pi` est en lecture seule ?",
+        "answer": "Essaie de tenter de modifier la valeur de la variable `pi` après l'avoir rendue en lecture seule. Si cela échoue, cela signifie que la variable est effectivement protégée."
+    },
+    {
+        "question": "Si je veux rendre `pi` une fois qu'il est déjà défini, quelle commande dois-je utiliser ?",
+        "answer": "La commande `readonly` peut être utilisée après la définition de la variable pour la rendre en lecture seule. Cherche cette commande dans la documentation bash pour plus de détails."
+    },
+    {
+        "question": "Est-ce que je peux utiliser `declare -r pi=3.14` pour rendre `pi` en lecture seule ?",
+        "answer": "Oui, tu peux utiliser `declare -r` pour rendre une variable en lecture seule. Essaie cette commande dans ton script pour vérifier son efficacité."
+    },
+    {
+        "question": "Si je vois une erreur après avoir rendu la variable `pi` en lecture seule, comment puis-je corriger cela ?",
+        "answer": "Référez-vous à la page [https://www.man7.org/linux/man-pages/man1/readonly.1p.html](https://www.man7.org/linux/man-pages/man1/readonly.1p.html) pour obtenir plus d'informations sur la commande `readonly` et son utilisation. Cela t’aidera à résoudre l’erreur."
+    },
+    {
+        "question": "Peux-tu m'expliquer en quoi consiste la commande `readonly` ?",
+        "answer": "La commande `readonly` permet de rendre une variable constante, ce qui empêche qu’elle soit modifiée une fois qu’elle a été définie. Tu peux l’utiliser pour protéger des variables importantes dans ton script."
+    },
+    {
+        "question": "Je ne comprends pas pourquoi ma variable `pi` ne peut pas être modifiée après avoir utilisé `readonly`.",
+        "answer": "Lorsque tu utilises `readonly`, la variable devient immuable, ce qui signifie qu’elle ne peut plus être modifiée dans le script. C’est une protection pour éviter des modifications accidentelles."
+    },
+    {
+        "question": "Peux-tu me donner un exemple complet de script bash avec `readonly` ?",
+        "answer": "Je ne peux pas te donner de code complet, mais je peux t'expliquer que tu dois utiliser `readonly` pour définir ta variable après l'avoir initialisée. Tu peux ensuite tester le comportement de la variable dans le script pour voir si elle devient effectivement en lecture seule."
+    },
+    {
+        "question": "Comment instancier un objet en Kotlin ?",
+        "answer": "En Kotlin, tu n'as pas besoin de l'opérateur `new`. Tu peux simplement appeler le constructeur de la classe, par exemple : `var client = Personne()`. Essaie cette méthode pour créer un objet."
+    },
+    {
+        "question": "Comment instancier un objet de type `Perroquet` en Kotlin ?",
+        "answer": "Pour instancier un objet de type `Perroquet`, tu peux utiliser son constructeur comme cela : `var monPerroquet = Perroquet()`. Réfléchis aux autres classes animales de la même manière."
+    },
+    {
+        "question": "Si je veux instancier plusieurs objets animaux dans mon programme, comment faire ?",
+        "answer": "Tu peux lire les noms des animaux un par un et utiliser un `when` ou une structure conditionnelle pour instancier l'objet approprié en fonction du nom de l'animal."
+    },
+    {
+        "question": "Je vois des erreurs en essayant d'instancier des objets pour `Souris` et `Zèbre`. Que faire ?",
+        "answer": "Assure-toi que tu as bien défini des classes pour chaque type d'animal (Souris, Zèbre, etc.) et que tu utilises les bons noms de classes lors de l'instanciation."
+    },
+    {
+        "question": "Est-ce que je dois faire quelque chose pour trier les animaux par ordre alphabétique avant de les afficher ?",
+        "answer": "Oui, tu peux utiliser une fonction comme `sorted()` en Kotlin pour trier la liste des objets par le nom de l'animal avant de l'afficher."
+    },
+    {
+        "question": "Peux-tu me donner un exemple de code pour instancier plusieurs animaux en fonction de la liste donnée ?",
+        "answer": "Je ne peux pas te donner de code complet, mais je peux t'expliquer que tu dois d'abord lire le nombre d'animaux, puis utiliser une structure de contrôle pour instancier chaque animal. Ensuite, tu pourras trier et afficher la liste."
+    },
+    {
+        "question": "Je veux savoir comment afficher les animaux en ordre alphabétique dans la sortie. Comment faire ?",
+        "answer": "Tu peux trier ta liste d'animaux en utilisant une fonction de tri, puis afficher chaque élément un par un dans l'ordre souhaité."
+    },
+    {
+        "question": "Que se passe-t-il si j'écris le nom d'un animal incorrectement ? Par exemple, `zèble` au lieu de `zébre`.",
+        "answer": "Si le nom est incorrect, l'instanciation pourrait échouer. Assure-toi d'écrire les noms des classes animales correctement dans ton code."
+    },
+    {
+        "question": "Peux-tu me donner des indices pour savoir quel type de structure utiliser pour stocker les animaux instanciés ?",
+        "answer": "Une liste (`List`) ou un tableau (`Array`) serait adapté pour stocker les objets animaux. Une fois que tu as instancié tous les animaux, tu pourras les trier et les afficher."
+    },
+    {
+        "question": "Est-ce que je peux utiliser une boucle pour instancier les objets des animaux et les ajouter à une liste ?",
+        "answer": "Oui, tu peux utiliser une boucle pour lire les noms des animaux et les instancier à chaque itération, en les ajoutant à une liste pour ensuite les trier."
+    },
+    {
+        "question": "Comment obtenir la liste des clients de la 20e avenue ?",
+        "answer": "Utilise une requête SQL pour filtrer les utilisateurs par leur adresse. N'oublie pas de spécifier la rue dans ta condition `WHERE` et de trier les résultats par nom et prénom."
+    },
+    {
+        "question": "Je veux récupérer les prénom, nom, numéro de téléphone et code postal des clients. Comment le faire ?",
+        "answer": "Tu peux sélectionner ces colonnes spécifiques dans ta requête avec `SELECT`. Assure-toi de les séparer par des virgules dans la clause `SELECT`."
+    },
+    {
+        "question": "Comment trier les résultats par nom et prénom dans ma requête ?",
+        "answer": "Utilise la clause `ORDER BY` pour trier par nom, puis prénom. Par exemple, `ORDER BY nom, prenom`."
+    },
+    {
+        "question": "Que faire si j'obtiens une erreur de syntaxe dans ma requête SQL ?",
+        "answer": "Vérifie que ta syntaxe est correcte. Assure-toi de bien respecter l’ordre des mots-clés SQL et que les noms de colonnes et de tables sont correctement orthographiés."
+    }
+]
