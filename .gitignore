@@ -61,4 +61,4 @@ flake8.log
 poetry.lock
 
 # outputs model files
-outputs/
+outputs/*
