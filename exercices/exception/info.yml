@@ -1,0 +1,71 @@
+type: prog
+
+titre: Caractère dans chaine
+
+niveau: base
+
+objectif: Rattraper une exception dans un bloc de code
+
+énoncé: |
+  On souhaite produire en sortie le `caractère` se trouvant à une `position` donnée dans une `chaine` de caractères.  
+  La `chaine` et la `position` sont reçues en entrée.
+
+  On souhaite aussi traiter l'**exception** au cas où la `position` xx du caractère serait **hors des limites** de la `chaine`, en **rattrapant** cette exception pour produire en sortie le message personnalisé `Erreur, position xx hors limites!`
+
+  À noter qu'il est possible de prévoir du code standard tel qu'un **if** pour éviter cette erreur, mais le but ici est de démystifier ce traitement d'exception.
+ 
+  ### Entrées
+
+  - `chaine` (chaine de caractères)
+  - `position` (nombre entier)
+
+  ### Sortie attendue
+
+  Le `caractère` de la `chaine` à la `position` fournie
+
+  ### À faire
+
+  Compléter le code afin de produire le `caractère` de la `chaine` à la `position` fournie ou le message d'erreur personnalisé de l'erreur en cas de dépassement des limites de la chaine, selon le modèle des exemples ci-dessous.
+
+  ### Exemples
+
+  1. Un petit exemple
+
+    - Entrées :
+      ```
+      maman
+      3
+
+      ```
+  
+  - Sortie attendue :
+    ``` 
+    Caractère m est à la position 3
+
+    ```
+  2. Erreur
+
+    - Entrées :
+      ```
+      axe
+      6
+
+      ```
+
+  - Sortie attendue :
+    ```
+    Erreur, position 6 hors limites!
+
+    ```
+ébauches:
+  java: !include exec.java
+
+
+rétroactions:
+  positive: Bravo tu as réussi à rattraper l'exception!
+  négative: Revoir la syntaxe pour rattraper ou pièger une exception.
+
+tests: !include tests.yml
+
+auteur: Wafaa Niar Dinedane / Patrick Lafrance
+licence: 2021 CC-BY-SA
