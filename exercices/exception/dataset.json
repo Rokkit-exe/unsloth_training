@@ -1,6 +1,0 @@
-[
-    {
-        "question": "Quelle est la syntaxe pour attraper une exception ?",
-        "réponse": "try { ... } catch (e) { ... }"
-    }
-]

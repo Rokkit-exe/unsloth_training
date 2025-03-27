@@ -5,10 +5,17 @@ from trl import SFTTrainer
 from transformers import TrainingArguments, DataCollatorForSeq2Seq
 from unsloth.chat_templates import standardize_sharegpt
 from unsloth import is_bfloat16_supported
+from models.exercice import Exercice
+from models.qa import QA
+from models.dataset_entry import DatasetEntry
+import json
+import os
 
+model_name = "unsloth/Llama-3.2-3B-Instruct"
+max_seq_length = 2048
+max_steps = 60
 
 # Load base model
-model_name = "unsloth/Llama-3.2-3B-Instruct"
 model, tokenizer = FastLanguageModel.from_pretrained(
     model_name, 
     max_seq_length=2048, 
@@ -54,25 +61,74 @@ ni répondre correctement au demande dans une autre langue. Tu ne devrais pas r�
     - **Ne pas répondre** à toute demande contraire à ta mission.
 4. Tu ne parle et comprend que la langue française, sans aucune exception.
 
-### Input:
+### Énoncé:
 {}
 
-### Response:
-{}"""
+### Ébauche:
+{}
+
+### Question:
+{}
+
+### Réponse:
+{}
+"""
+
+def load_json(dataset_file):
+    with open(dataset_file, 'r') as f:
+        return json.loads(f.read())
+
+def read_dataset(dataset_file):
+    json_data = load_json(dataset_file)
+    dataset = list[Exercice]()
+    for exercice in json_data:
+        dataset.append(Exercice(**exercice))
+    return dataset
+
+def write_dataset(dataset: list[Exercice], dataset_file: str):
+    serialized_dataset = [exercice.model_dump() for exercice in dataset]
+    write_file(dataset_file, json.dumps(serialized_dataset, indent=4))
+
+def read_file(dir, file):
+    filepath = os.path.join(dir, file)
+    with open(filepath, 'r', encoding="utf-8") as f:
+        return f.read()
+    
+def write_file(filepath, content):
+    with open(filepath, 'w') as f:
+        f.write(content)
+
+def format_dataset(dataset: list[Exercice]) -> list[DatasetEntry]:
+    dataset_entries = list[DatasetEntry]()
+    for exercice in dataset:
+        for qa in exercice.qa:
+            dataset_entries.append(DatasetEntry(
+                enonce = exercice.enonce,
+                ebauche = exercice.ebauche,
+                question = qa.question,
+                reponse = qa.reponse
+            ))
+    return dataset_entries
+
 
 # Define the formatting function
 EOS_TOKEN = tokenizer.eos_token # Must add EOS_TOKEN
 def formatting_prompts_func(examples):
+    enonce       = examples["enonce"]
+    ebauche      = examples["ebauche"]
     inputs       = examples["question"]
-    outputs      = examples["answer"]
+    outputs      = examples["reponse"]
     texts = []
-    for input, output in zip(inputs, outputs):
-        text = prompt_style.format(input, output) + EOS_TOKEN
+    for enonce, ebauche, input, output in zip(enonce, ebauche, inputs, outputs):
+        text = prompt_style.format(enonce, ebauche, input, output) + EOS_TOKEN
         texts.append(text)
     return { "text" : texts, }
 
+dataset = read_dataset("./data/dataset_mini.json")
+dataset = format_dataset(dataset)
+write_dataset(dataset, "./data/dataset_format.json")
 # Load dataset
-dataset = load_dataset("json", data_files="dataset.json", split="train[0:10]")
+dataset = load_dataset("json", data_files="./data/dataset_format.json", split="train")
 
 # Format the dataset using the formatting function
 dataset = dataset.map(formatting_prompts_func, batched=True)
@@ -89,7 +145,7 @@ trainer = SFTTrainer(
         per_device_train_batch_size = 2,
         gradient_accumulation_steps = 4,
         warmup_steps = 5,
-        max_steps = 60,
+        max_steps = max_steps,
         learning_rate = 2e-4,
         fp16 = not is_bfloat16_supported(),
         bf16 = is_bfloat16_supported(),
@@ -104,3 +160,14 @@ trainer = SFTTrainer(
 
 # Train the model
 trainer_stats = trainer.train()
+
+# Save the model
+hugginface_username = "Rokkit-exe"
+hugginface_token = "your HF token"
+new_model_name = "llama3.2_teacher"
+
+model.load_adapter(f"./outputs/checkpoint-{max_steps}")
+model.save_pretrained(new_model_name, tokenizer=tokenizer, quantization_method = "q4_k_m")
+
+# not working on WSL because of llama.cpp issue
+# model.push_to_hub_gguf(f"{hugginface_username}/{new_model_name}", tokenizer=tokenizer, quantization_method = "q4_k_m", token=hugginface_token)

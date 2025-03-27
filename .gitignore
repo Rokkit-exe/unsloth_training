@@ -60,5 +60,14 @@ flake8.log
 # Poetry
 poetry.lock
 
-# outputs model files
+# exercices prog
+prog_1/
+
+# outputs and temp files
 outputs/*
+llama3.2_teacher/
+_unsloth_sentencepiece_temp/
+unsloth_compiled_cache/
+
+# data
+data/
